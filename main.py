@@ -136,7 +136,7 @@ def test():
                 res = is_quit('Would you like to finish press "q", otherwise press any key: ')
                 if res[0]:
                     break
-            print('You result ' + str(succes) + '/' + str(summary))
+            print('Your result ' + str(succes) + '/' + str(summary))
 
 
 def main_dict():
