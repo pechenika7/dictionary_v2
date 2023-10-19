@@ -15,7 +15,10 @@ def is_quit(promt=''):
 
 def edit_settings(current_user):
     if user_dict[2][current_user] in {1, 2}:
-      pass
+        print('This procedure is not desined yet')
+        pass
+    else:
+        print("Access denied- you don't have permission. Please register")
 
 
 def list_words():
@@ -106,7 +109,7 @@ def translate():
     is_fine = False
     for i in range(count_words):
         if query == eng_rus[a][i]:
-            print ('There is translate your word: "', eng_rus[b][i], '"')
+            print('There is translate your word: "', eng_rus[b][i], '"')
             is_fine = True
             break
     if not (is_fine):
