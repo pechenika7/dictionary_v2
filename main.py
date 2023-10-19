@@ -3,6 +3,10 @@ from password_utils import code_pswd, decode_pswd
 from back_up_utils import save_dict, back_up, restore
 
 
+def feed_back():
+    pass
+
+
 def is_quit(promt=''):
     temp = (input(promt).upper())
     flag = temp in {'Q', 'Й'}
@@ -182,7 +186,7 @@ def main_dict():
 
     while True:
         print('Please select command')
-        ch = input('q- quite work, l- list words, e- edit, t- test, d- translate, s- settings, b- backup, r- restore.\n').upper()
+        ch = input('q- quite work, l- list words, e- edit, t- test, d- translate, s- settings, b- backup, r- restore, f- feed back\n').upper()
         if ch in {'Q', 'Й'}: break
         elif ch in {'L', 'Д'}: list_words()
         elif ch in {'E', 'У'}: edit(current_user)
@@ -194,6 +198,7 @@ def main_dict():
             if res != -1:
                 count_words = res
         elif ch in {'R', 'К'}: restore(current_user, user_dict)
+        elif ch in {'F', 'А'}: feed_back()
         else: print('Wrong command! Repeat please.')
     print('Goodbye!')
 
