@@ -1,3 +1,4 @@
+from shutil import copy2
 def save_dict(eng_rus, path='dict.txt'):
     cw = len(eng_rus[0]) #cw - count words
     f = open(path, 'w', encoding='utf8')

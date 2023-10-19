@@ -1,5 +1,4 @@
 from random import shuffle
-from shutil import copy2
 from password_utils import code_pswd, decode_pswd
 from back_up_utils import save_dict, back_up, restore
 
