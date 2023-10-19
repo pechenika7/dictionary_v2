@@ -101,7 +101,7 @@ def test_mode(tm):
 
 
 def translate():
-    a, b = test_mode('Please select translation direction: eng-рус(press 1), рус-eng(press 2) ')
+    a, b = test_mode(input('Please select translation direction: eng-рус(press 1), рус-eng(press 2) '))
     query = input('Please type your word').lower()
     is_fine = False
     for i in range(count_words):
