@@ -40,7 +40,7 @@ def list_words():
         else:
             t = words_on_page
         for i in range(t):
-            print(eng_rus[0][words_on_page*(current-1)+i], '-', eng_rus[1][words_on_page*(current-1)+i])
+            print(eng_rus[words_on_page*(current-1)+i])
         if pages == 1:
             break
         res = is_quit('Do u want to continue, if not pleas type "q" ')
@@ -54,8 +54,7 @@ def add_word():
     res = is_quit('Please type new couple of words or type "q" to quit: ')
     if res[0] == False:
         temp = res[1].split()
-        eng_rus[0].append(temp[0])
-        eng_rus[1].append(temp[1])
+        eng_rus.append({temp[0]: temp[1]})
         save_dict()
 
 
@@ -65,9 +64,9 @@ def edit_word():
     if res[0] == False:
         wn = int(res[1])
         pos = words_on_page * (num - 1) + (wn - 1)
-        print(eng_rus[0][pos], '-', eng_rus[1][pos])
+        print(eng_rus[pos])
         item = int(input('What word is wrong? 0- english word, 1- russian word: '))
-        eng_rus[item][pos] = input('Please type correct variant: ')
+        eng_rus[pos][item] = input('Please type correct variant: ')
         save_dict(eng_rus)
 
 
@@ -167,21 +166,19 @@ def main_dict():
     global words_on_page
     words_on_page = load_settings('settings.txt')
 
+    dict_file = open('dict.txt', 'r', encoding='utf8')
 
-    dict_file = open('dict.txt',  'r', encoding='utf8')
-
-    eng = []
-    rus = []
+    eng_rus = list()
     while True:
         item = dict_file.readline()
         if item == '' or item == '\n':
             break
         temp_list = item.split(';')
-        eng.append(temp_list[0])
-        rus.append(temp_list[1].strip())
-    eng_rus = [eng, rus]
-    count_words = len(eng)
+        eng_rus.append({temp_list[0]: temp_list[1].strip()})
+    count_words = len(eng_rus)
     dict_file.close
+
+    print(eng_rus)
 
 
     while True:
